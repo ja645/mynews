@@ -19,11 +19,11 @@ class ProfileController extends Controller
     
     public function edit()
     {
-        return view('admin.porfile.edit');
+        return view('admin.profile.edit');
     }
     
     public function update()
     {
-        return redirect('admin/porfile/edit');
+        return redirect('admin/profile/edit');
     }
 }
