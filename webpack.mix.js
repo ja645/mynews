@@ -16,4 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/admin.scss', 'public/css')
     .sass('resources/sass/profile.scss', 'public/css')
     .sass('resources/sass/front.scss', 'public/css');
-    
+
+// if (mix.inProduction()) {
+//   mix.version();
+// }    

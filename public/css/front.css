@@ -2,9 +2,16 @@ body {
   color: #000;
 }
 
-.header .logo {
-  width: 120px;
-  height: 82px;
+/*.header {
+  .logo {
+      width: 120px;
+      height: 82px;
+  }
+}*/
+
+.navbar-brand-front,
+.nav-link-front {
+  color: black;
 }
 
 .headline .caption {
@@ -33,21 +40,37 @@ body {
   font-size: 0.8em;
 }
 
-.posts .post .date {
+.posts .post .date,
+.posts .user .date,
+.users .post .date,
+.users .user .date {
   font-size: 0.6em;
   color: #999999;
 }
 
-.posts .post .title {
+.posts .post .title,
+.posts .post .name,
+.posts .user .title,
+.posts .user .name,
+.users .post .title,
+.users .post .name,
+.users .user .title,
+.users .user .name {
   font-size: 1.2em;
   font-weight: bold;
 }
 
-.posts .post .body {
+.posts .post .body,
+.posts .user .body,
+.users .post .body,
+.users .user .body {
   font-size: 0.8em;
 }
 
-.posts .post .image img {
+.posts .post .image img,
+.posts .user .image img,
+.users .post .image img,
+.users .user .image img {
   width: 250px;
 }
 

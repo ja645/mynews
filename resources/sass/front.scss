@@ -2,11 +2,14 @@ body {
   color: #000;
 }
 
-.header {
+/*.header {
   .logo {
       width: 120px;
       height: 82px;
   }
+}*/
+.navbar-brand-front, .nav-link-front {
+  color: black;
 }
 
 .headline {
@@ -35,13 +38,13 @@ body {
   }
 }
 
-.posts {
-  .post {
+.posts, .users {
+  .post, .user {
     .date {
       font-size: 0.6em;
       color: #999999;
     }
-    .title {
+    .title, .name {
       font-size: 1.2em;
       font-weight: bold;
     }
@@ -52,22 +55,6 @@ body {
       img {
     width: 250px;
       }
-    }
-  }
-}
-
-.users {
-  .user {
-    .date {
-      font-size: 0.6em;
-      color: #999999;
-    }
-    .name {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-    .introduction {
-      font-size: 0.8em;
     }
   }
 }
