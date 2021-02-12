@@ -2,6 +2,8 @@
 
 @section('title', 'プロフィール一覧')
 
+@section('page-title', 'プロフィール一覧')
+
 @section('content')
     <div class="container">
         <hr color="#c0c0c0">
@@ -9,35 +11,36 @@
             <div class="users col-md-8 mx-auto mt-3">
                 @foreach($users as $user)
                     <div class="user">
-                        <div class="row">
-                            <div class="text col-md-6">
-                                <div class="date">
-                                    {{ $user->updated_at->format('Y年m月d日') }}
-                                </div>
-                                <div class="name">
-                                    {{ str_limit($user->name) }}
-                                </div>
-                                @if ($user->gender == 1)
-                                <div class="gender mt-3">
-                                    男性
-                                </div>
-                                @elseif ($user->gender == 2)
-                                 <div class="gender mt-3">
-                                    女性
-                                </div>
-                                @else
-                                 <div class="gender mt-3">
-                                    その他
-                            　  </div>
-                                @endif
-                                <div class="hobby mt-3">
-                                    趣味：{{ str_limit($user->hobby) }}
-                                </div>
-                                <div class="introduction mt-3">
-                                   自己紹介： {{ str_limit($user->introduction, 1500) }}
-                                </div>
+                        <div class="column-left">
+                            <div class="name">
+                                {{ str_limit($user->name) }}
+                            </div>
+                            @if ($user->gender == 1)
+                            <div class="gender">
+                                男性
+                            </div>
+                            @elseif ($user->gender == 2)
+                             <div class="gender">
+                                女性
+                            </div>
+                            @else
+                             <div class="gender">
+                                その他
+                        　  </div>
+                            @endif
+                            <div class="date">
+                                登録日：{{ $user->updated_at->format('Y年m月d日') }}
+                            </div>
+                            <div class="hobby">
+                                <span class="user-item">趣味：</span>{{ str_limit($user->hobby) }}
                             </div>
                         </div>
+                        <div class="column-right">
+                            <div class="introduction">
+                               <p class="user-item">自己紹介：</p>{{ str_limit($user->introduction, 1500) }}
+                            </div>
+                        </div>
+                        <section class="clearfix"></section>
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach

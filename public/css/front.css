@@ -74,3 +74,43 @@ body {
   width: 250px;
 }
 
+.page-title {
+  text-align: center;
+}
+
+.column-left {
+  height: 120px;
+  width: 200px;
+  float: left;
+}
+
+.column-right {
+  height: 120px;
+  width: 250px;
+  float: left;
+}
+
+.hobby,
+.introduction {
+  margin-top: 0;
+}
+
+.clearfix {
+  content: "";
+}
+
+.user-item {
+  margin-bottom: 0;
+}
+
+.gender,
+.date,
+.hobby {
+  margin-top: 10px;
+}
+
+.user-item {
+  color: #444444;
+  font-weight: bold;
+}
+

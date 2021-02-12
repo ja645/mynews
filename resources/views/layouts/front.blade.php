@@ -54,6 +54,9 @@
           </div>
         </div>
       </nav> 
+      <h1 class="page-title">
+        @yield('page-title')
+      </h1>
       <main class="py-4">
         @yield('content')
       </main>
