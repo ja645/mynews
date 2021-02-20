@@ -18,35 +18,40 @@
     
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
   </head>
   <body>
     <div id="app">
       <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
         <div class="container">
-          <a class="navbar-band" href="{{ url('/') }}">
-            mynews
+          <a class="navbar-brand" href="{{ url('/') }}">
+            What's New?
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggle-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav" mr-auto">
+            <ul class="navbar-nav mr-auto">
             </ul>
-            
-            <!-- Right Side of Nabar -->
+            <!-- Right Side of Nabar --> 
             <ul class="navbar-nav ml-auto">
-            
+              
             <!-- Authentication Links -->
             @guest
-              <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+              <li><a class="nav-link" href="{{ route('register') }}">signup</a>or<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}<a></li>
             @else
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ Auth::user()->name }}<span class="caret"></span><a/>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+              
+                  <!-- ユーザー名をクリックするとマイページに飛ぶ -->
+                  <li class="nav-item"><a href="{{ route('mypage', ['id' => Auth::user()->id]) }}">{{ Auth::user()->name }}</a></li>
+      
+            
+                  <!-- ニュース作成ページへ飛ぶ -->
+                  <li class="nav-item"><a href="{{ route('scoop') }}">Scoop!</a></li>
+                  
+                  
+                  <a class="navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                </div>
+                
               </li>
             @endguest
             </ul>

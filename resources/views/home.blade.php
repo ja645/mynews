@@ -13,8 +13,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                        <div class="login">
+                            <div class="message">
+                                ログインに成功しました！<br>まずはプロフィールを作成しましょう！
+                            </div>
+                            <div class="button">
+                              <a href="{{ route('profile.create') }}">
+                                  プロフィールを作成する
+                              </a>  
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

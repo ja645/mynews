@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 use App\History;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -17,20 +18,30 @@ class ProfileController extends Controller
     
     public function create(Request $repuest)
     {
-        $this->validate($repuest, Profile::$rules);
+        if (Profile::where('user_id', Auth::id())->exists()){
+            return redirect('admin/' . Auth::id() . '/profile')->with('flash_message', 'プロフィールは存在します。');
+        }
         
+        $this->validate($repuest, Profile::$rules);
         $profile = new Profile;
         $form = $repuest->all();
         
         unset($form['_token']);
         
-        $profile->fill($form)->save();
-        return redirect('admin/profile/create');
+        $profile->fill($form);
+        Auth::user()->profile()->save($profile);
+        
+        return redirect('admin/news/create');
     }
     
-    public function edit(Request $repuest)
+    public function edit($id)
     {
-        $profile = Profile::find($repuest->id);
+        $profile = Profile::find($id);
+        
+        //本人以外が編集できないようにする。
+        if ($profile->user_id != Auth::id()){
+            abort(404);
+        }
         
         if (empty($profile)) {
             abort(404);
@@ -59,4 +70,24 @@ class ProfileController extends Controller
         //プロフィール編集ページにリダイレクト
         return redirect()->action('Admin\ProfileController@edit', ['id' => $profile->id]);
     }
+    
+    public function mypage(Request $request)
+    {
+        
+        $profile = Auth::getUser()->profile()->first();
+        
+        //ここにNewsコントローラーのindexアクションをぶち込んだ
+        $cond_title = $request->cond_title;
+          if ($cond_title != '') {
+            //検索されたら検索結果を取得する
+            $posts = Auth::getUser()->News()->where('title', $cond_title)->get();
+          } else {
+            //それ以外はすべてのニュースを取得する
+            $posts = Auth::getUser()->News()->get();
+          }
+     
+        return view('admin.profile.mypage', ['profile' => $profile, 'posts' => $posts, 'cond_title' => $cond_title]);
+    
+    }
+    
 }

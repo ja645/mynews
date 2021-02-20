@@ -12,24 +12,36 @@
 */
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('news/create', 'Admin\NewsController@add');
+    //ニュース作成
+    Route::get('news/create', 'Admin\NewsController@add')->name('scoop');
     Route::post('news/create', 'Admin\NewsController@create');
-    Route::get('news', 'Admin\NewsController@index');
-    Route::get('news/edit', 'Admin\NewsController@edit');
-    Route::post('news/edit', 'Admin\NewsController@update');
-    Route::get('news/delete', 'Admin\NewsController@delete');
     
-    //課題4.
-    Route::get('profile/create', 'Admin\ProfileController@add');
+    //マイニュース一覧 これはmypageに統合した
+    Route::get('news', 'Admin\ProfileController@mypage')->name('mynews');
+    
+    
+    //ニュース編集
+    Route::get('{id}/news/{news_id}/edit', 'Admin\NewsController@edit');
+    Route::post('news/edit', 'Admin\NewsController@update');
+    
+    //ニュース削除
+    Route::get('{id}/news/{news_id}/delete', 'Admin\NewsController@delete');
+    
+    //マイプロフィール
+    Route::get('{id}/profile', 'Admin\ProfileController@mypage')->name('mypage');
+    
+    //プロフィール作成
+    Route::get('profile/create', 'Admin\ProfileController@add')->name('profile.create');
     Route::post('profile/create', 'Admin\ProfileController@create');
     
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
+    //プロフィル編集
+    Route::get('{id}/profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'NewsController@index');
 Route::get('/profile', 'ProfileController@index');

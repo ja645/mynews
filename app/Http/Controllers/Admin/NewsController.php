@@ -8,6 +8,7 @@ use App\News;
 use App\History;
 use Carbon\Carbon;
 use Storage;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -39,32 +40,42 @@ class NewsController extends Controller
       
       //データベースに保存する
       $news->fill($form);
+      $news->user_id = Auth::user()->id;
       $news->save();
       
-      return redirect('admin/news/create');
+      return redirect('admin/news');
     }
     
+    //indexアクションはProfileコントローラーのmypageアクションに移した
     public function index(Request $request)
     {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
         //検索されたら検索結果を取得する
-        $posts = News::where('title', $cond_title)->get();
+        $posts = Auth::user()->News()->where('title', $cond_title)->get();
       } else {
         //それ以外はすべてのニュースを取得する
-        $posts = News::all();
+        $posts = Auth::user()->News()->get();
       }
+      
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
-    
-    public function edit(Request $request)
+    public function edit($id, $news_id)
     {
+      //本人以外が編集できないようにする
+      if ($id != Auth::id()){
+        abort(404);
+      }
+      
       //News Modelからデータを取得する
-      $news = News::find($request->id);
+      $news = News::find($news_id);
+      
+      
       if (empty($news)) {
         abort(404);
       }
+      //dd($news);
       return view('admin.news.edit', ['news_form' => $news]);
     }
     
@@ -104,10 +115,15 @@ class NewsController extends Controller
       return redirect('admin/news');
     }
     
-    public function delete(Request $request)
+    public function delete($id, $news_id)
     {
+      //本人以外が削除できないようにする
+      if ($id != Auth::id()){
+        abort(404);
+      }
+      
       //該当するNews Modelを取得
-      $news = News::find($request->id);
+      $news = News::find($news_id);
       //削除する
       $news->delete();
       return redirect('admin/news/');

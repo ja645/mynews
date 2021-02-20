@@ -1,41 +1,254 @@
+@charset "UTF-8";
+
 body {
+  margin: 0;
+  padding: 0;
+}
+
+#index {
+  background-image: url(/images/1795760_l.jpg?91946cfb6bca029761002f86aebb1d9f);
   background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  color: #fff;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-.navbar-laravel {
-  background-color: #000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+a {
+  color: #333333;
+  font-family: serif;
+  text-decoration: none;
 }
 
-.navbar-brand {
-  color: #fff !important;
+a:hover {
+  text-decoration: none;
 }
 
-.nav-link {
-  color: #fff !important;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-family: serif;
 }
 
-.table-dark {
-  color: #fff;
+.logo {
+  text-align: center;
+  border-top: double 8px #333333;
+  border-bottom: solid 3px #333333;
+  margin: 10px 10px 0;
 }
 
-.list-group-item {
-  border-color: #fff;
-  background-color: #000;
+.logo a {
+  font-size: 200px;
+  margin: 0 auto;
+  line-height: 1;
 }
 
-.login-box {
-  background-color: rgba(0, 0, 0, 0);
+.navbar-control {
+  font-size: 40px;
+  margin: 0 10px 0;
+  text-align: center;
+  border-bottom: double 8px #333333;
 }
 
-.login-header {
-  background-color: rgba(0, 0, 0, 0.25);
+.navbar-item {
+  display: inline-block;
 }
 
-.login-body {
-  background-color: rgba(0, 0, 0, 0.25);
+.scoop {
+  margin: 0 300px 0;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  background-image: url(/images/1795760_l.jpg?91946cfb6bca029761002f86aebb1d9f);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  transition: all 0.9s;
+}
+
+header.is_scroll {
+  display: none;
+}
+
+header.is_scroll ~ .main {
+  margin: 0 80px 0;
+  padding-top: 0;
+}
+
+.main {
+  margin: 0 80px 0;
+  padding-top: 304px;
+}
+
+.top-news {
+  height: 486px;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: solid 2px #333333;
+}
+
+.top-image {
+  width: 640px;
+  height: 360px;
+  margin-left: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  float: left;
+}
+
+.top-title {
+  text-align: center;
+  margin: 0;
+  font-size: 60px;
+  padding: 10px 0 10px;
+}
+
+.top-text {
+  width: 440px;
+  height: 360px;
+  margin-left: 13px;
+  float: left;
+}
+
+.post {
+  height: 220px;
+  margin: 0;
+}
+
+.article-image {
+  width: 360px;
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  float: right;
+}
+
+.title {
+  width: 700px;
+  height: 190px;
+  margin: 0;
+  font-size: 50px;
+}
+
+.date {
+  width: 700px;
+  height: 30px;
+}
+
+.title-date {
+  float: left;
+  margin-left: 10px;
+}
+
+.my-img {
+  width: 300px;
+  height: 300px;
+  float: left;
+  margin: 0 30px 0 20px;
+}
+
+.my-name {
+  font-family: serif;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.date,
+.gender,
+.hobby,
+.introduction {
+  font-family: serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.futo {
+  font-weight: bold;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.user-information {
+  margin-top: 20px;
+}
+
+.edit {
+  text-align: right;
+}
+
+h2 {
+  margin: 0 10px 0;
+  text-align: center;
+  border-bottom: solid 2px #333333;
+}
+
+.form-control {
+  width: 800px;
+  margin: 0 40px 0 30px;
+  display: inline-block;
+}
+
+.search {
+  margin: 20px 0;
+}
+
+.news-table {
+  margin: 0 0 40px 20px;
+}
+
+.news-title {
+  font-size: 32px;
+  font-family: serif;
+  width: 900px;
+  border-bottom: 2px solid #333333;
+  background: none;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-radius: 0px;
+}
+
+.news-title:focus {
+  outline: none;
+}
+
+.auto-resize {
+  font-size: 32px;
+  font-family: serif;
+  width: 900px;
+  height: 40px;
+  border-bottom: 2px solid #333333;
+  background: none;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-radius: 0px;
+}
+
+.auto-resize:focus {
+  outline: none;
+  /* 要素のサイズを可変から固定にする */
+  resize: none;
+  /* 要素がスクロールしないようにする */
+  overflow: hidden;
+}
+
+.news-form {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.create-title {
+  margin-top: 30px;
 }
 

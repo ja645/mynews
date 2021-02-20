@@ -11,7 +11,9 @@
     
     <!-- Scripts -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
-  
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css? family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -22,44 +24,46 @@
   </head>
   
   
-  <body>
-    <div id="app">
-      <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-        <div class="container">
-          <a class="navbar-brand-front" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggle-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            <!-- Right Side of Nabar --> 
-            <ul class="navbar-nav ml-auto">
-              
-            <!-- Authentication Links -->
-            @guest
-              <li><a class="nav-link-front" href="{{ route('login') }}">{{ __('Login') }}<a></li>
-            @else
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link-front dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ Auth::user()->name }}<span class="caret"></span><a/>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                </div>
-              </li>
-            @endguest
-            </ul>
-          </div>
-        </div>
-      </nav> 
-      <h1 class="page-title">
-        @yield('page-title')
-      </h1>
-      <main class="py-4">
-        @yield('content')
-      </main>
-    </div>
+  <body id="index">
+    <header>
+      <div class="logo">
+        <a href="{{ url('/') }}">What's New?</a>
+      </div>
+      <nav class="navbar-control">
+        <!-- ログイン済みのユーザー用 -->
+      @if(Auth::check())
+        <!-- ユーザー名をクリックするとマイページに飛ぶ -->
+        <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item user-id">{{ Auth::user()->name }}</a>
+
+        <!-- ニュース作成ページへ飛ぶ -->
+        <a href="{{ route('scoop') }}" class="navbar-item scoop">Scoop!</a>
+        
+        <!-- ログアウト -->
+        <a class="navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+        
+      @else
+        <a class="navbar-item" href="{{ route('login') }}">login</a>
+        <a class="navbar-item" href="{{ route('register') }}">signup</a>
+      @endif
+      </nav>
+    </header>
+
+    @yield('content')
+  
+  
+  <script>
+    //要素の取得
+    var startPos = 0,winScrollTop = 0;
+    $(window).on('scroll',function(){
+        winScrollTop = $(this).scrollTop();
+        if (winScrollTop >= startPos) {
+            $('header').addClass('is_scroll');
+        } else {
+            $('header').removeClass('is_scroll');
+        }
+        startPos = winScrollTop;
+    });
+  </script>
   </body>
 </html>
