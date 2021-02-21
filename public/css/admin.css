@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 body {
   margin: 0;
   padding: 0;
@@ -65,6 +63,8 @@ h6 {
 header {
   width: 100%;
   position: fixed;
+  top: 0;
+  z-index: 2px;
   background-image: url(/images/1795760_l.jpg?91946cfb6bca029761002f86aebb1d9f);
   background-repeat: no-repeat;
   background-position: center center;
@@ -218,37 +218,64 @@ h2 {
   border-radius: 0px;
 }
 
-.news-title:focus {
-  outline: none;
-}
-
-.auto-resize {
+.auto_resize {
   font-size: 32px;
   font-family: serif;
   width: 900px;
-  height: 40px;
+  height: 60px;
   border-bottom: 2px solid #333333;
   background: none;
   border-right: none;
   border-left: none;
   border-top: none;
   border-radius: 0px;
+  overflow: hidden;
 }
 
-.auto-resize:focus {
+.auto_resize,
+.news-title:focus {
   outline: none;
-  /* 要素のサイズを可変から固定にする */
-  resize: none;
-  /* 要素がスクロールしないようにする */
-  overflow: hidden;
 }
 
 .news-form {
   text-align: center;
-  margin: 40px 0;
+  margin: 100px 0;
 }
 
 .create-title {
-  margin-top: 30px;
+  margin: 80px 0 10px;
+  font-size: 40px;
+  text-align: center;
+  border-bottom: solid 2px #333333;
+}
+
+#img_upload {
+  position: relative;
+  overflow: hidden;
+  height: 72px;
+  width: 72px;
+  margin: 100px auto;
+}
+
+.fa-camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#img_upload_form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 72px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.btn-create {
+  margin: 0 auto 100px;
+  text-align: center;
 }
 

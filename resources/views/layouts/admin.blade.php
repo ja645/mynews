@@ -19,6 +19,9 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css? family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
@@ -52,7 +55,7 @@
     @yield('content')
   
   <script>
-    //要素の取得
+    //ヘッダーがスクロールで消える
     var startPos = 0,winScrollTop = 0;
     $(window).on('scroll',function(){
         winScrollTop = $(this).scrollTop();
@@ -64,8 +67,23 @@
         startPos = winScrollTop;
     });
     
+    //textareaの自動リサイズ
+    $(function(){
+      $('textarea.auto_resize')
+      .on('change keyup keydown paste cut', function(){
+        if ($(this).outerHeight() > this.scrollHeight){
+          $(this).height(1)
+        }
+        while ($(this).outerHeight() < this.scrollHeight){
+          $(this).height($(this).height() + 1)
+        }
+      });
+    });
     
-    
+    //画像がアップされていれば色を変える
+    $('#img_upload_form').change(function(){
+      document.querySelector('.fa-camera').style.color = 'red'
+    });
   </script>
   </body>
 </html>
