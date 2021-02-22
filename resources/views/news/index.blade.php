@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'ニュース一覧')
+@section('title', "What's New?")
 
 @section('content')
   <div class="main">

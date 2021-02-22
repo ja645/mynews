@@ -48,20 +48,20 @@
     </div>
     
     <div class="edit">
-      <a href="{{ url('admin/' . $profile->id . '/profile/edit') }}" class="btn btn-primary">編集</a>
+      <a href="{{ url('admin/' . $profile->id . '/profile/edit') }}" class="button">編集</a>
     </div>
   </div>
   
   <div class="clear-fix"></div>
   
-  <h2>MyNews</h2>
+  <h1 class="page-title">Your News</h1>
      
         <form action="{{ route('mypage', ['id' => Auth::id()]) }}" method="post">
           <div class="search">
           <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}" placeholder="キーワードを入力">
           {{ csrf_field() }}
          
-            <input type="submit" class="btn btn-primary" value="検索">
+            <input type="submit" class="button" value="検索">
           </div>
         </form>
      

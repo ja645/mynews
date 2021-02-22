@@ -1,65 +1,69 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Login</title>
+    
+    <!-- Scripts -->
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css? family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+  </head>
+  <body id="index">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="login-box card">
-                <div class="login-header card-header mx-auto">{{ __('messages.Login') }}</div>
-
-                <div class="login-body card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('messages.E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ?' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('messages.Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors-first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('messages.Login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    
+    <div class="main">         
+        <h1 class="page-title">Login</h1>
+    
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+    
+            <input id="email" type="email" class="{{ $errors->has('email') ?' is-invalid' : '' }}" name="email" placeholder="{{ __('messages.E-Mail Address') }}" value="{{ old('email') }}" required autofocus>
+    
+            @if ($errors->has('email'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
+    
+    
+      
+            <input id="password" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('messages.Password') }}" required>
+    
+            @if ($errors->has('password'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors-first('password') }}</strong>
+                </span>
+            @endif
+    
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
+                </label>
             </div>
-        </div>
+    
+            <button type="submit" class="button">
+                {{ __('messages.Login') }}
+            </button>
+               
+        </form>
     </div>
-</div>
-@endsection
+ </body>
+</html>

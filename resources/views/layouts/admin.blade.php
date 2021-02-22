@@ -85,6 +85,7 @@
     $('#img_upload_form').change(function(){
       document.querySelector('.fa-camera').style.color = 'red'
     });
+    
   </script>
   </body>
 </html>

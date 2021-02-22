@@ -8,7 +8,7 @@
 @section('content')
   <div class="main">
     
-    <h1 class="create-title">What happened?</h1>
+    <h1 class="page-title">What happened?</h1>
     
     <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
       @if (count($errors) > 0)
@@ -34,7 +34,7 @@
       {{ csrf_field() }}
       
       <div class="btn-create">
-        <input type="submit" value="Release!">
+        <input class="button" type="submit" value="Release!">
       </div>
     </form>
   </div>

@@ -4,7 +4,7 @@
 @section('content')
   <div class="main">
     
-    <h1>ニュース編集</h1>
+    <h1 class="page-title">Edit Your News</h1>
     
     <form action="{{ action('Admin\NewsController@update') }}" method="post" enctype="multipart/form-data">
       
@@ -32,7 +32,7 @@
       {{ csrf_field() }}
       
       <div class="btn-create">
-        <input type="submit" value="Release!">
+        <input class="button" type="submit" value="Release!">
       </div>
     </form>
          
