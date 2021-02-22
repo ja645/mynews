@@ -54,6 +54,7 @@
     
     @yield('content')
   
+    <footer></footer>
   <script>
     //ヘッダーがスクロールで消える
     var startPos = 0,winScrollTop = 0;

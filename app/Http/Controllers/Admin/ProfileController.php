@@ -8,6 +8,8 @@ use App\Profile;
 use App\History;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+//pagenateのため
+use App\Person;
 
 class ProfileController extends Controller
 {
@@ -73,17 +75,18 @@ class ProfileController extends Controller
     
     public function mypage(Request $request)
     {
-        
-        $profile = Auth::getUser()->profile()->first();
+        //ログインしているユーザーを取り出す
+        $user = Auth::user();
+        $profile = $user->profile()->first();
         
         //ここにNewsコントローラーのindexアクションをぶち込んだ
         $cond_title = $request->cond_title;
           if ($cond_title != '') {
             //検索されたら検索結果を取得する
-            $posts = Auth::getUser()->News()->where('title', $cond_title)->get();
+            $posts = $user->News()->where('title', $cond_title)->paginate(10);
           } else {
             //それ以外はすべてのニュースを取得する
-            $posts = Auth::getUser()->News()->get();
+            $posts = $user->News()->paginate(10);
           }
      
         return view('admin.profile.mypage', ['profile' => $profile, 'posts' => $posts, 'cond_title' => $cond_title]);

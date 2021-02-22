@@ -43,8 +43,8 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         
       @else
-        <a class="navbar-item" href="{{ route('login') }}">login</a>
-        <a class="navbar-item" href="{{ route('register') }}">signup</a>
+        <a class="navbar-item login" href="{{ route('login') }}">Login</a>
+        <a class="navbar-item signup" href="{{ route('register') }}">Signup</a>
       @endif
       </nav>
     </header>

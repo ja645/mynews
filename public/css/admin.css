@@ -279,3 +279,7 @@ h2 {
   text-align: center;
 }
 
+.pagination {
+  height: 50px;
+}
+

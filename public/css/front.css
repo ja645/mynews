@@ -110,6 +110,7 @@ header.is_scroll ~ .main {
 }
 
 .top-text {
+  font-size: 18px;
   width: 440px;
   height: 360px;
   margin-left: 13px;
@@ -118,7 +119,7 @@ header.is_scroll ~ .main {
 
 .post {
   height: 220px;
-  margin: 0;
+  margin-bottom: 80px;
 }
 
 .article-image {
@@ -130,19 +131,34 @@ header.is_scroll ~ .main {
 }
 
 .title {
-  width: 700px;
-  height: 190px;
+  height: 150px;
   margin: 0;
   font-size: 50px;
 }
 
 .date {
-  width: 700px;
   height: 30px;
+  font-color: #999999;
 }
 
 .title-date {
+  width: 300px;
   float: left;
-  margin-left: 10px;
+  margin: 20px 0 20px 10px;
+}
+
+.text {
+  font-size: 18px;
+  width: 400px;
+  float: left;
+  margin: 20px 0;
+}
+
+.login {
+  margin-right: 100px;
+}
+
+.signup {
+  margin-left: 100px;
 }
 

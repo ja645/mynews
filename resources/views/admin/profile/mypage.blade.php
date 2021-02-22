@@ -91,6 +91,10 @@
               @endforeach
             </tbody>
           </table>
-        
+          
+          <div class="pagination">
+            {{ $posts->links() }}
+          </div>
+          
 </div>
 @endsection
