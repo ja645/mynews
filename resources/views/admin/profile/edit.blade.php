@@ -15,7 +15,7 @@
         </ul>
         @endif
           
-        <input type="text" class="form-control" name="name" value="{{ $profile_form->name }}">
+        <input type="text" class="input" name="name" value="{{ $profile_form->name }}">
  
         <lavel for="male">male</lavel>
         <input class="gender male" type="radio" name="gender" value=1 @if($profile_form->gender == 1) checked="checked" @endif>
@@ -24,9 +24,9 @@
         <lavel for="custom">custom</lavel>
         <input class="gender custom" type="radio" name="gender" value=3 @if($profile_form->gender == 3) checked="checked" @endif>
      
-        <input type="text" class="form-control" name="hobby" value="{{ $profile_form->hobby }}">
+        <input type="text" class="input" name="hobby" value="{{ $profile_form->hobby }}">
   
-        <textarea type="text" class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
+        <textarea type="text" class="auto_resize" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
      
         <input type="hidden" name="id" value="{{ $profile_form->id }}">
         {{ csrf_field() }}

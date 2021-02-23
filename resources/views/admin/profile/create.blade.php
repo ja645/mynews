@@ -19,7 +19,7 @@
       
       
         
-          <input type="text" class="form-control" name="name" placeholder="Your Name" value="{{ old('title') }}">
+          <input type="text" class="" name="input" placeholder="Your Name" value="{{ old('title') }}">
    
       
           <lavel for="male">male</lavel>
@@ -30,10 +30,10 @@
           <input class="gender custom" type="radio" name="gender" value=3 @if({{ old('gender') }} == 3) checked="checked" @endif>
      
      
-          <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
+          <input type="text" class="input" name="hobby" value="{{ old('hobby') }}">
       
       
-          <textarea type="text" class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
+          <textarea type="text" class="auto_resize" name="introduction" rows="20">{{ old('introduction') }}</textarea>
       
       </div>
       {{ csrf_field() }}

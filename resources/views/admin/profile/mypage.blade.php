@@ -58,7 +58,7 @@
      
         <form action="{{ route('mypage', ['id' => Auth::id()]) }}" method="post">
           <div class="search">
-          <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}" placeholder="キーワードを入力">
+          <input type="text" class="input" name="cond_title" value="{{ $cond_title }}" placeholder="キーワードを入力">
           {{ csrf_field() }}
          
             <input type="submit" class="button" value="検索">

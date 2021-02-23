@@ -20,7 +20,7 @@
       @endif
       
       <div class="news-form">
-        <input type="text" class="news-title" name="title" value="{{ old('title') }}" placeholder="title">
+        <input type="text" class="input" name="title" value="{{ old('title') }}" placeholder="title">
       </div>
       
       <div class="news-form">

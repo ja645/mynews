@@ -29,14 +29,14 @@
   <body id="index">
 
     
-    <div class="main">         
+    <div class="main" id="login">         
         <h1 class="page-title">Login</h1>
     
         <form method="POST" action="{{ route('login') }}">
             @csrf
     
-            <input id="email" type="email" class="{{ $errors->has('email') ?' is-invalid' : '' }}" name="email" placeholder="{{ __('messages.E-Mail Address') }}" value="{{ old('email') }}" required autofocus>
-    
+            {{--<input id="email" type="email" class="input {{ $errors->has('email') ?' is-invalid' : '' }}" name="email" placeholder="{{ __('messages.E-Mail Address') }}" value="{{ old('email') }}" required autofocus>--}}
+            <input type="email" class="input" name="email" value="{{ old('email') }}" required autofocus>
             @if ($errors->has('email'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -45,7 +45,7 @@
     
     
       
-            <input id="password" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('messages.Password') }}" required>
+            <input type="password" class="input {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('messages.Password') }}" required>
     
             @if ($errors->has('password'))
                 <span class="invalid-feedback">
