@@ -41,7 +41,7 @@
         <a href="{{ route('scoop') }}" class="navbar-item scoop">Scoop!</a>
         
         <!-- ログアウト -->
-        <a class="navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+        <a class="navbar-item logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         
       @else

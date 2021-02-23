@@ -58,10 +58,9 @@
      
         <form action="{{ route('mypage', ['id' => Auth::id()]) }}" method="post">
           <div class="search">
-          <input type="text" class="input" name="cond_title" value="{{ $cond_title }}" placeholder="キーワードを入力">
-          {{ csrf_field() }}
-         
-            <input type="submit" class="button" value="検索">
+            <input type="text" class="input search-bar" name="cond_title" value="{{ $cond_title }}" placeholder="キーワードを入力">
+            {{ csrf_field() }}
+            <input type="submit" class="button fas fa-search fa-3x" value="&#xf002;">
           </div>
         </form>
      
@@ -69,22 +68,20 @@
           <table class="news-table">
             <thead>
               <tr>
-                <th width="10%">ID</th>
-                <th width="20%">タイトル</th>
-                <th width="50%">本文</th>
+                <th width="30%">タイトル</th>
+                <th width="64%">本文</th>
+                <th width="6%"></th>
               </tr>
             </thead>
             <tbody>
               @foreach($posts as $news)
                 <tr>
-                  <th>{{ $news->id }}</th>
                   <td>{{ \Str::limit($news->title, 100) }}</td>
-                  <td>{{ \Str::limit($news->body, 250) }}
-                    <div>
-                      <a href="{{ url('admin/' . $news->user_id . '/news/' . $news->id . '/edit') }}">編集</a>
-                    </div>
-                    <div>
-                      <a href="{{ url('admin/' . $news->user_id . '/news/' . $news->id . '/delete') }}">削除</a>
+                  <td>{{ \Str::limit($news->body, 48) }}</td>
+                  <td>
+                    <div class="icons">
+                      <a href="{{ url('admin/' . $news->user_id . '/news/' . $news->id . '/edit') }}"><i class="fas fa-edit"></i></a>
+                      <a href="{{ url('admin/' . $news->user_id . '/news/' . $news->id . '/delete') }}"><i class="far fa-trash-alt"></i></a>
                     </div>
                   </td>
                 </tr>

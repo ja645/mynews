@@ -54,17 +54,20 @@ h6 {
 
 .navbar-control {
   font-size: 40px;
+  padding: 0 70px;
   margin: 0 10px 0;
   text-align: center;
   border-bottom: double 8px #333333;
 }
 
-.navbar-item {
-  display: inline-block;
+.user-id {
+  display: block;
+  float: left;
 }
 
-.scoop {
-  margin: 0 300px 0;
+.logout {
+  display: block;
+  float: right;
 }
 
 header {
@@ -206,11 +209,35 @@ h2 {
 }
 
 .search {
-  margin: 20px 0;
+  width: 900px;
+  margin: 60px auto 40px;
+}
+
+.search-bar {
+  width: 800px;
+}
+
+.search .fas {
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-radius: 0px;
+  background: none;
+}
+
+.search .fas:hover {
+  color: #FF0000;
 }
 
 .news-table {
-  margin: 0 0 40px 20px;
+  font-size: 24px;
+  width: 1000px;
+  margin: 80px auto 0;
+}
+
+td {
+  padding: 20px 0;
 }
 
 .input {
