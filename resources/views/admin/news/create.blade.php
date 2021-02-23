@@ -31,11 +31,14 @@
         <i class="fas fa-camera fa-5x"></i>
         <input id="img_upload_form" type="file" name="image">
       </div>
-      {{ csrf_field() }}
+      
+         {{ csrf_field() }}
       
       <div class="btn-create">
         <input class="button" type="submit" value="Release!">
       </div>
     </form>
+    
+    
   </div>
 @endsection

@@ -9,7 +9,7 @@
     <form action="{{ action('Admin\NewsController@update') }}" method="post" enctype="multipart/form-data">
       
       <div class="news-form">
-        <input type="text" class="news-title" name="title" value="{{ $news_form->title }}" placeholder="title">
+        <input type="text" class="input" name="title" value="{{ $news_form->title }}" placeholder="title">
       </div>
       
       <div class="news-form">

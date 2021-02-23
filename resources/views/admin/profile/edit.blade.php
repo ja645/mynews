@@ -15,19 +15,28 @@
         </ul>
         @endif
           
-        <input type="text" class="input" name="name" value="{{ $profile_form->name }}">
+        <div class="news-form">
+          <input type="text" class="input" name="name" value="{{ $profile_form->name }}">
+        </div>
  
-        <lavel for="male">male</lavel>
-        <input class="gender male" type="radio" name="gender" value=1 @if($profile_form->gender == 1) checked="checked" @endif>
-        <lavel for="female">female</lavel>
-        <input class="gender female" type="radio" name="gender" value=2 @if($profile_form->gender == 2) checked="checked" @endif>
-        <lavel for="custom">custom</lavel>
-        <input class="gender custom" type="radio" name="gender" value=3 @if($profile_form->gender == 3) checked="checked" @endif>
-     
-        <input type="text" class="input" name="hobby" value="{{ $profile_form->hobby }}">
-  
-        <textarea type="text" class="auto_resize" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
-     
+        <div class="select-gender">
+          <span>Your Gender:</span>
+          <lavel for="male">male</lavel>
+          <input class="gender male" type="radio" name="gender" value=1 @if($profile_form->gender == 1) checked="checked" @endif>
+          <lavel for="female">female</lavel>
+          <input class="gender female" type="radio" name="gender" value=2 @if($profile_form->gender == 2) checked="checked" @endif>
+          <lavel for="custom">custom</lavel>
+          <input class="gender custom" type="radio" name="gender" value=3 @if($profile_form->gender == 3) checked="checked" @endif>
+        </div>
+        
+        <div class="news-form">
+          <input type="text" class="input" name="hobby" value="{{ $profile_form->hobby }}">
+        </div>
+         
+        <div class="news-form">
+          <textarea type="text" class="auto_resize" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
+        </div>
+           
         <input type="hidden" name="id" value="{{ $profile_form->id }}">
         {{ csrf_field() }}
         <input type="submit" class="button" value="更新">

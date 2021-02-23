@@ -1,9 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-}
-
-#index {
   background-image: url(../public/storage/image/1795760_l.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -139,6 +136,7 @@ header.is_scroll ~ .main {
   float: left;
   margin: 20px 0 20px 10px;
 }
+
 
 .text {
   font-size: 18px;

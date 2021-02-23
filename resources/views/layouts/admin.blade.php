@@ -26,7 +26,7 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
   </head>
-  <body id="index">
+  <body>
     <header ="header">
       <div class="logo">
         <a href="{{ url('/') }}">What's New?</a>
@@ -81,8 +81,9 @@
       });
     });
     
-    //画像がアップされていれば色を変える
+    //画像がアップされていれば色を変え、コメントを表示する
     $('#img_upload_form').change(function(){
+      document.querySelector('.fa-camera').style.color = 'red'
       document.querySelector('.fa-camera').style.color = 'red'
     });
     

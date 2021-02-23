@@ -1,9 +1,10 @@
+//共通のレイアウト
+html {
+  font-size: 62.5%;
+}
 body {
   margin: 0;
   padding: 0;
-}
-
-#index {
   background-image: url(../public/storage/image/1795760_l.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -11,12 +12,6 @@ body {
   background-size: cover;
 }
 
-.page-title {
-  font-size: 56px;
-  text-align: center;
-  border-bottom: solid 2px #333333;
-  margin-top: 30px;
-}
 a {
   color: #333333;
   font-family: serif;
@@ -32,6 +27,14 @@ p, h1, h2, h3, h4, h5, h6 {
   font-family: serif;
 }
 
+.page-title {
+  font-size: 56px;
+  text-align: center;
+  border-bottom: solid 2px #333333;
+  margin-top: 60px;
+}
+
+//ヘッダー
 .logo {
   text-align: center;
   border-top: double 8px #333333;
@@ -84,6 +87,7 @@ header.is_scroll ~ .main {
   margin: 0 80px 0;
   padding-top: 0;
 }
+//ヘッダーここまで
 
 .main {
   margin: 0 80px 0;
@@ -115,6 +119,7 @@ header.is_scroll ~ .main {
 
 
 .top-text {
+  font-size: 18px;
   width: 440px;
   height: 360px;
   margin-left: 13px;
@@ -123,7 +128,7 @@ header.is_scroll ~ .main {
 
 .post {
   height: 220px;
-  margin: 0;
+  margin-bottom: 80px;
 }
 
 .article-image {
@@ -134,20 +139,36 @@ header.is_scroll ~ .main {
 }
 
 .title {
-  width: 700px;
-  height: 190px;
+  height: 150px;
   margin: 0;
   font-size: 50px;
 }
 
 .date {
-  width: 700px;
   height: 30px;
+  font-color: #999999;
 }
 
 .title-date {
+  width: 300px;
   float: left;
-  margin-left: 10px
+  margin: 20px 0 20px 10px;
+}
+
+
+.text {
+  font-size: 18px;
+  width: 400px;
+  float: left;
+  margin: 20px 0;
+}
+
+.login {
+  margin-right: 100px;
+}
+
+.signup {
+  margin-left: 100px;
 }
 
 
@@ -180,7 +201,7 @@ header.is_scroll ~ .main {
 }
 
 .user-information {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .edit {
@@ -331,3 +352,37 @@ td {
   margin: 30px 0;
 }
 //loginフォームここまで
+
+//性別選択ボタン
+.select-gender {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.select-gender span {
+  font-family: serif;
+  font-size: 24px;
+  font-color: #999;
+}
+//性別選択ここまで
+
+//ログイン前
+.text {
+  font-size: 18px;
+  width: 400px;
+  float: left;
+  margin: 20px 0;
+}
+
+.login {
+  margin-right: 100px;
+}
+
+.signup {
+  margin-left: 100px;
+}
+
+//レスポンシブデザイン
+@media screen and (max-width: 600px) {
+  
+}

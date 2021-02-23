@@ -20,8 +20,8 @@
     @foreach($posts as $post)
       <div class="post">
         <div class="title-date">
-          <h2 class="title">{{ str_limit($post->title, 150) }}</h2>
-          <div class="date">{{ $post->updated_at->format('Y年m月d日') }}</div>
+          <h1 class="title">{{ str_limit($post->title, 150) }}</h1>
+          <div class="date"><p>{{ $post->updated_at->format('Y年m月d日') }}</p></div>
         </div>
         <div class="text">
           <p>{{ str_limit($post->body, 650) }}</p>
