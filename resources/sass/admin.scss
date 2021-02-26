@@ -2,7 +2,9 @@
 html {
   font-size: 62.5%;
 }
+
 body {
+  font-family: serif;
   margin: 0;
   padding: 0;
   background-image: url(../public/storage/image/1795760_l.jpg);
@@ -14,6 +16,7 @@ body {
 
 a {
   color: #333333;
+  font-size: 1.6rem;
   font-family: serif;
   text-decoration: none;
 }

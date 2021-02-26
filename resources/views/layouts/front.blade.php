@@ -20,14 +20,19 @@
     
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
   </head>
   
   
   <body>
+    
     <header>
       <div class="logo">
-        <a href="{{ url('/') }}">What's New?</a>
+        <a class="text-dark text-decoration-none" href="{{ url('/') }}">What's New?</a>
       </div>
       <nav class="navbar-control">
         <!-- ログイン済みのユーザー用 -->
@@ -43,13 +48,17 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         
       @else
-        <a class="navbar-item login" href="{{ route('login') }}">Login</a>
-        <a class="navbar-item signup" href="{{ route('register') }}">Signup</a>
+        <a class="navbar-item login text-dark text-decoration-none" href="{{ route('login') }}">Login</a>
+        <a class="navbar-item signup text-dark text-decoration-none" href="{{ route('register') }}">Signup</a>
       @endif
       </nav>
     </header>
-
-    @yield('content')
+    
+    <div class="container">
+      
+      @yield('content')
+      
+    </div>
   
   
   <script>
