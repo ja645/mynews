@@ -25,35 +25,58 @@
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+    
+    <!-- 外部css埋め込み -->
     @stack('css')
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
   </head>
   <body>
     <header ="header">
       <div class="logo">
-        <a href="{{ url('/') }}">What's New?</a>
+        <a class="text-dark text-decoration-none" href="{{ url('/') }}">What's&nbsp<br class="d-sm-none">New?</a>
       </div>
       <nav class="navbar-control">
         <!-- ログイン済みのユーザー用 -->
       @if(Auth::check())
-        <!-- ユーザー名をクリックするとマイページに飛ぶ -->
-        <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item user-id">{{ Auth::user()->name }}</a>
-
-        <!-- ニュース作成ページへ飛ぶ -->
-        <a href="{{ route('scoop') }}" class="navbar-item scoop">Scoop!</a>
+        <div class="row">
+          <div class="col-4">
+            <!-- ユーザー名をクリックするとマイページに飛ぶ -->
+            <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item text-dark text-decoration-none">{{ Auth::user()->name }}</a>
+          </div>
+          
+          <div class="col-4">
+            <!-- ニュース作成ページへ飛ぶ -->
+            <a href="{{ route('scoop') }}" class="navbar-item text-dark text-decoration-none">Scoop!</a>
+          </div>
+          
+          <div class="col-4">
+            <!-- ログアウト -->
+            <a class="navbar-item text-dark text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+          </div>
+        </div>
         
-        <!-- ログアウト -->
-        <a class="navbar-item logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         
       @else
-        <a class="navbar-item" href="{{ route('login') }}">login</a>
-        <a class="navbar-item" href="{{ route('register') }}">signup</a>
+        <div class="row">
+          <div class="col-6">
+            <a class="navbar-item text-dark text-decoration-none" href="{{ route('login') }}">login</a>
+          </div>
+          <div class="col-6">
+            <a class="navbar-item text-dark text-decoration-none" href="{{ route('register') }}">signup</a>
+          </div>
+        </div>
       @endif
       </nav>
       
     </header>
     
-    @yield('content')
+    <div class="container">
+      @yield('content')  
+    </div>
   
     <footer></footer>
   <script>
@@ -84,7 +107,6 @@
     
     //画像がアップされていれば色を変え、コメントを表示する
     $('#img_upload_form').change(function(){
-      document.querySelector('.fa-camera').style.color = 'red'
       document.querySelector('.fa-camera').style.color = 'red'
     });
     

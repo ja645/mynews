@@ -1,3 +1,7 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,11 +14,6 @@ body {
 
 a {
   font-family: serif;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 p,
@@ -36,7 +35,7 @@ h6 {
 }
 
 .logo a {
-  font-size: 200px;
+  font-size: 20rem;
   margin: 0 auto;
   line-height: 1;
 }
@@ -73,11 +72,6 @@ header.is_scroll {
 
 .container {
   padding-top: 304px;
-}
-
-.title,
-.post {
-  border-bottom: solid 3px #333;
 }
 
 .login {

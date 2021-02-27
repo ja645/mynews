@@ -6,9 +6,8 @@
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
-  <div class="main">
     
-    <h1 class="page-title">What happened?</h1>
+    <h1 id="title" class="text-center my-5 border-bottom border-dark border-2">What happened?</h1>
     
     <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
       @if (count($errors) > 0)
@@ -28,7 +27,7 @@
       </div>
       
       <div id="img_upload">
-        <i class="fas fa-camera fa-5x"></i>
+        <i class="fas fa-camera fa-7x"></i>
         <input id="img_upload_form" type="file" name="image">
       </div>
       
@@ -39,6 +38,4 @@
       </div>
     </form>
     
-    
-  </div>
 @endsection

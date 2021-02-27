@@ -25,33 +25,36 @@
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
-  </head>
-  <body id="index">
-
     
-    <div class="main" id="login">         
-        <h1 class="page-title">Login</h1>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container pt-0">
+        
+        <h1 id="title" class="text-center my-5 border-bottom border-dark border-3">Login</h1>
     
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            
+            <div class="news-form">
+                <input type="email" class="form-control form-control-lg mx-auto" style="width: 75%;"name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+            
     
-            {{--<input id="email" type="email" class="input {{ $errors->has('email') ?' is-invalid' : '' }}" name="email" placeholder="{{ __('messages.E-Mail Address') }}" value="{{ old('email') }}" required autofocus>--}}
-            <input type="email" class="input" name="email" value="{{ old('email') }}" required autofocus>
-            @if ($errors->has('email'))
-                <span class="invalid-feedback">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
-            @endif
-    
-    
-      
-            <input type="password" class="input {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('messages.Password') }}" required>
-    
-            @if ($errors->has('password'))
-                <span class="invalid-feedback">
-                    <strong>{{ $errors-first('password') }}</strong>
-                </span>
-            @endif
+            <div class="news-form">
+                <input type="password" class="form-control form-control-lg mx-auto {{ $errors->has('password') ? ' is-invalid' : '' }}" style="width: 75%;" name="password" placeholder="{{ __('messages.Password') }}" required>
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors-first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
     
             <div class="checkbox">
                 <label>
@@ -64,6 +67,7 @@
             </button>
                
         </form>
+    
     </div>
  </body>
 </html>

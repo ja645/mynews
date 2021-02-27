@@ -32,19 +32,19 @@
     
     <header>
       <div class="logo">
-        <a class="text-dark text-decoration-none" href="{{ url('/') }}">What's New?</a>
+        <a class="text-dark text-decoration-none" href="{{ url('/') }}">What's&nbsp<br class="d-md-none">New?</a>
       </div>
       <nav class="navbar-control">
         <!-- ログイン済みのユーザー用 -->
       @if(Auth::check())
         <!-- ユーザー名をクリックするとマイページに飛ぶ -->
-        <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item user-id">{{ Auth::user()->name }}</a>
+        <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item user-id　text-dark text-decoration-none">{{ Auth::user()->name }}</a>
 
         <!-- ニュース作成ページへ飛ぶ -->
-        <a href="{{ route('scoop') }}" class="navbar-item scoop">Scoop!</a>
+        <a href="{{ route('scoop') }}" class="navbar-item scoop　text-dark text-decoration-none">Scoop!</a>
         
         <!-- ログアウト -->
-        <a class="navbar-item logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+        <a class="navbar-item logout　text-dark text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         
       @else
