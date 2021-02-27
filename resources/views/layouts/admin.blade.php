@@ -38,23 +38,26 @@
       <div class="logo">
         <a class="text-dark text-decoration-none" href="{{ url('/') }}">What's&nbsp<br class="d-sm-none">New?</a>
       </div>
-      <nav class="navbar-control">
+      <nav class="navbar-control px-1 px-sm-5">
         <!-- ログイン済みのユーザー用 -->
       @if(Auth::check())
         <div class="row">
           <div class="col-4">
             <!-- ユーザー名をクリックするとマイページに飛ぶ -->
-            <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item text-dark text-decoration-none">{{ Auth::user()->name }}</a>
+            <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item text-dark text-decoration-none d-none d-sm-block">{{ Auth::user()->name }}</a>
+            <a href="{{ route('mypage', ['id' => Auth::user()->id]) }}" class="navbar-item text-dark text-decoration-none d-sm-none"><i class="fas fa-user"></i></a>
           </div>
           
           <div class="col-4">
             <!-- ニュース作成ページへ飛ぶ -->
-            <a href="{{ route('scoop') }}" class="navbar-item text-dark text-decoration-none">Scoop!</a>
+            <a href="{{ route('scoop') }}" class="navbar-item text-dark text-decoration-none d-none d-sm-block">Scoop!</a>
+            <a href="{{ route('scoop') }}" class="navbar-item text-dark text-decoration-none d-sm-none"><i class="fas fa-pen"></i></a>
           </div>
           
           <div class="col-4">
             <!-- ログアウト -->
-            <a class="navbar-item text-dark text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+            <a class="navbar-item text-dark text-decoration-none d-none d-sm-block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+            <a class="navbar-item text-dark text-decoration-none d-sm-none" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i></a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
           </div>
         </div>
