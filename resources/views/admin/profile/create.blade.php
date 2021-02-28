@@ -17,7 +17,7 @@
     @endif
     
     <div class="news-form">
-      <input type="text" class="input" name="input" placeholder="Your Name">
+      <input type="text" class="input" name="name" placeholder="Your Name">
     </div>
     
     <div class="row mx-auto" style="width: 75%;">
