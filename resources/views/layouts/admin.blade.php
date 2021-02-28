@@ -110,7 +110,7 @@
     
     //画像がアップされていれば色を変え、コメントを表示する
     $('#img_upload_form').change(function(){
-      document.querySelector('.fa-camera').style.color = 'red'
+      document.querySelector('.fa-camera').style.color = 'green'
     });
     
   </script>

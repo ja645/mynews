@@ -17,15 +17,20 @@
       <div class="news-form">
         <input type="text" class="input" name="name" value="{{ $profile_form->name }}">
       </div>
-
-      <div class="select-gender">
-        <span>Your Gender:</span>
-        <lavel for="male">male</lavel>
-        <input class="gender male" type="radio" name="gender" value=1 @if($profile_form->gender == 1) checked="checked" @endif>
-        <lavel for="female">female</lavel>
-        <input class="gender female" type="radio" name="gender" value=2 @if($profile_form->gender == 2) checked="checked" @endif>
-        <lavel for="custom">custom</lavel>
-        <input class="gender custom" type="radio" name="gender" value=3 @if($profile_form->gender == 3) checked="checked" @endif>
+      
+      <div class="row mx-auto" style="width: 75%;">
+        <div id="gender-select" class="form-check col-12 col-sm-3 mx-auto my-5">
+          <input type="radio" class="btn-check" name="gender" id="male" value=1 @if($profile_form->gender == 1) checked="checked" @endif>
+          <label class="gender-label btn btn-outline-primary" style="width: 100%; font-size: 2.0rem;" for="male">Male</label>
+        </div>
+        <div id="gender-select" class="form-check col-12 col-sm-3 mx-auto my-5">
+          <input type="radio" class="btn-check" name="gender" id="female" value=2 @if($profile_form->gender == 2) checked="checked" @endif>
+          <label class="gender-label btn btn-outline-primary"style="width: 100%; font-size: 2rem;" for="female">Female</label>
+        </div>
+        <div id="gender-select" class="form-check col-12 col-sm-3 mx-auto my-5">
+          <input type="radio" class="btn-check" name="gender" id="custom" value=3 @if($profile_form->gender == 3) checked="checked" @endif>
+          <label class="gender-label btn btn-outline-primary" style="width: 100%; font-size: 2rem;" for="custom">Custom</label>
+        </div>
       </div>
       
       <div class="news-form">
@@ -38,7 +43,10 @@
          
       <input type="hidden" name="id" value="{{ $profile_form->id }}">
       {{ csrf_field() }}
-      <input type="submit" class="button" value="更新">
+      
+      <div class="mx-auto" style="width: 85.66px;">
+        <input class="btn btn-outline-success" style="font-size: 2.4rem;" type="submit" value="Update">
+      </div>
        
     </form>
   

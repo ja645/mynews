@@ -70,7 +70,7 @@ class ProfileController extends Controller
         $history->save();
         
         //プロフィール編集ページにリダイレクト
-        return redirect()->action('Admin\ProfileController@edit', ['id' => $profile->id]);
+        return redirect()->action('Admin\ProfileController@mypage', ['id' => $profile->id]);
     }
     
     public function mypage(Request $request)

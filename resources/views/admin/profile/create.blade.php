@@ -20,14 +20,19 @@
       <input type="text" class="input" name="input" placeholder="Your Name">
     </div>
     
-    <div class="select-gender">
-      <span>Your Gender:</span>
-      <lavel for="male">male</lavel>
-      <input class="gender male" type="radio" name="gender" value=1>
-      <lavel for="female">female</lavel>
-      <input class="gender female" type="radio" name="gender" value=2>
-      <lavel for="custom">custom</lavel>
-      <input class="gender custom" type="radio" name="gender" value=3>
+    <div class="row mx-auto" style="width: 75%;">
+      <div id="gender-select" class="form-check col-12 col-sm-3 mx-auto my-5">
+        <input type="radio" class="btn-check" name="gender" id="male" value=1>
+        <label class="gender-label btn btn-outline-primary" style="width: 100%; font-size: 2.0rem;" for="male">Male</label>
+      </div>
+      <div id="gender-select" class="form-check col-12 col-sm-3 mx-auto my-5">
+        <input type="radio" class="btn-check" name="gender" id="female" value=2>
+        <label class="gender-label btn btn-outline-primary"style="width: 100%; font-size: 2rem;" for="female">Female</label>
+      </div>
+      <div id="gender-select" class="form-check col-12 col-sm-3 mx-auto my-5">
+        <input type="radio" class="btn-check" name="gender" id="custom" value=3>
+        <label class="gender-label btn btn-outline-primary" style="width: 100%; font-size: 2rem;" for="custom">Custom</label>
+      </div>
     </div>
     
     <div class="news-form">
@@ -39,7 +44,9 @@
     </div>
 
     {{ csrf_field() }}
-    <input type="submit" class="btn btn-primary" value="作成">
+    <div class="mx-auto" style="width: 85.66px;">
+      <input type="submit" class="btn btn-outline-success" style="font-size: 2.4rem;" value="Create">
+    </div>
   </form>
       
 @endsection

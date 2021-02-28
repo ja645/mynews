@@ -33,8 +33,8 @@
       
          {{ csrf_field() }}
       
-      <div class="btn-create">
-        <input class="button" type="submit" value="Release!">
+      <div class="mx-auto" style="width: 85.66px">
+        <input class="btn btn-outline-success" style="font-size: 2.4rem;" type="submit" value="Create">
       </div>
     </form>
     

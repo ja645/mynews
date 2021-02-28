@@ -56,15 +56,15 @@
                 @endif
             </div>
     
-            <div class="checkbox">
-                <label>
-                    <input class="checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
+            <div class="form-check mx-auto" style="width: 220px;">
+                <label style="font-size: 2rem;">
+                    <input class="checkbox" style="transform: scale(1.5);" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
                 </label>
             </div>
-    
-            <button type="submit" class="button">
-                {{ __('messages.Login') }}
-            </button>
+            
+            <div class="d-grid col-3 mx-auto my-5">
+                <button type="submit" class="btn btn-outline-success mt-5 m-sm-0" style="font-size: 2.4rem;">Login</button>
+            </div>
                
         </form>
     

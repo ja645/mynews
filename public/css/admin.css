@@ -80,7 +80,6 @@ i {
 }
 
 .navbar-control {
-  padding: 0 70px;
   margin: 0 10px 0;
   text-align: center;
   border-bottom: double 8px #333333;
@@ -227,14 +226,14 @@ header.is_scroll ~ .main {
   height: 50px;
 }
 
-.select-gender {
-  width: 500px;
-  margin: 0 auto;
+#gender-select {
+  position: relative;
+  height: 39.5px;
 }
 
-.select-gender span {
-  font-family: serif;
-  font-size: 24px;
-  font-color: #999;
+.gender-label {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 

@@ -18,7 +18,7 @@
     <div id="img_upload">
       <!-- 画像が設定されていればアイコンを赤くする -->
       @if ($news_form->image_path)
-        <i class="fas fa-camera fa-7x" style="color: red;"></i>
+        <i class="fas fa-camera fa-7x" style="color: green;"></i>
         <input id="img_upload_form" type="file" name="image">
       @else
         <i class="fas fa-camera fa-7x"></i>
@@ -35,8 +35,8 @@
     <input type="hidden" name="id" value="{{ $news_form->id }}">
     {{ csrf_field() }}
     
-    <div class="btn-create">
-      <input class="button" type="submit" value="Release!">
+    <div class="mx-auto" style="width: 85.66px;">
+      <input class="btn btn-outline-success" style="font-size: 2.4rem;" type="submit" value="Update">
     </div>
   </form>
        
